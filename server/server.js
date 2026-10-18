@@ -15,7 +15,7 @@ if (missingEnvVars.length) {
   throw new Error(`Missing required environment variable(s): ${missingEnvVars.join(', ')}`);
 }
 
-const defaultOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+const defaultOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://jan-tantra.vercel.app'];
 const envOrigins = [
   process.env.CLIENT_URL,
   ...(process.env.CORS_ORIGINS || '').split(',')
