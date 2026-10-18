@@ -37,8 +37,8 @@ export default function AuthorityDashboard() {
       <div className="stats-grid">
         {[
           { label: 'Total Issues', val: ov.totalIssues || 0, color: 'si-blue', icon: '📋' },
-          { label: 'Resolved', val: ov.resolvedIssues || 0, color: 'si-green', icon: '✅' },
-          { label: 'Overdue', val: ov.overdueIssues || 0, color: 'si-red', icon: '⚠️' },
+          { label: 'Resolved', val: ov.resolvedIssues || 0, color: 'si-green', icon: '✓' },
+          { label: 'Overdue', val: ov.overdueIssues || 0, color: 'si-red', icon: '!' },
           { label: 'Resolution Rate', val: `${ov.resolutionRate || 0}%`, color: 'si-teal', icon: '📈' },
           { label: 'Funds Allocated', val: `₹${((ov.totalFundsAllocated || 0) / 100000).toFixed(1)}L`, color: 'si-purple', icon: '💰' },
           { label: 'Avg Citizen Rating', val: `${ov.avgCitizenRating || '0.0'} ★`, color: 'si-yellow', icon: '⭐' },

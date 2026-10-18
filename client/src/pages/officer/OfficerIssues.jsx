@@ -81,7 +81,7 @@ export default function OfficerIssues() {
                     <td>
                       {issue.deadline ? (
                         <span style={{ fontSize: 12, color: isOverdue ? 'var(--danger)' : 'var(--text-secondary)', fontWeight: isOverdue ? 700 : 400 }}>
-                          {isOverdue ? '⚠️ ' : ''}{new Date(issue.deadline).toLocaleDateString()}
+                          {isOverdue ? '[Overdue] ' : ''}{new Date(issue.deadline).toLocaleDateString()}
                         </span>
                       ) : <span style={{ color: 'var(--text-muted)', fontSize: 12 }}>No deadline</span>}
                     </td>
@@ -127,7 +127,7 @@ export default function OfficerIssues() {
             </div>
             {updateForm.status === 'resolved' && (
               <div style={{ background: 'var(--success-light)', border: '1px solid #86efac', borderRadius: 10, padding: '10px 14px', fontSize: 13, color: '#166534', marginBottom: 16 }}>
-                ✅ Marking as resolved will update your performance score and notify citizens for feedback.
+                Marking as resolved will update your performance score and notify citizens for feedback.
               </div>
             )}
             <div style={{ display: 'flex', gap: 10 }}>

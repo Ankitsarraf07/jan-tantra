@@ -20,7 +20,7 @@ const seed = async () => {
   // Clear existing data
   await User.deleteMany(); await Area.deleteMany(); await Issue.deleteMany();
   await Fund.deleteMany(); await Ranking.deleteMany();
-  console.log('🧹 Cleared existing data');
+  console.log('Cleared existing data');
 
   // Create Areas
   const areas = await Area.insertMany([
@@ -30,7 +30,7 @@ const seed = async () => {
     { name: 'Jayanagar', district: 'Bangalore Urban', state: 'Karnataka', pincode: '560041', population: 65000 },
     { name: 'HSR Layout', district: 'Bangalore Urban', state: 'Karnataka', pincode: '560102', population: 90000 },
   ]);
-  console.log(`✅ Created ${areas.length} areas`);
+  console.log(`Created ${areas.length} areas`);
 
   // Create Admin
   const admin = await User.create({
@@ -49,7 +49,7 @@ const seed = async () => {
   await Area.findByIdAndUpdate(areas[0]._id, { assignedOfficerId: officers[0]._id });
   await Area.findByIdAndUpdate(areas[1]._id, { assignedOfficerId: officers[1]._id });
   await Area.findByIdAndUpdate(areas[2]._id, { assignedOfficerId: officers[2]._id });
-  console.log(`✅ Created ${officers.length} officers`);
+  console.log(`Created ${officers.length} officers`);
 
   // Create Authority
   const authority = await User.create({
@@ -63,7 +63,7 @@ const seed = async () => {
     { name: 'Sneha Nair', email: 'citizen2@gmail.com', password: 'Citizen@123', age: 32, role: 'citizen', areaId: areas[1]._id, isApproved: true, phone: '9876543211' },
     { name: 'Rohit Jain', email: 'citizen3@gmail.com', password: 'Citizen@123', age: 25, role: 'citizen', areaId: areas[0]._id, isApproved: true, phone: '9876543212' },
   ]);
-  console.log(`✅ Created ${citizens.length} citizens`);
+  console.log(`Created ${citizens.length} citizens`);
 
   // Create Issues
   const issues = await Issue.insertMany([
@@ -74,7 +74,7 @@ const seed = async () => {
     { title: 'Park Maintenance Required', description: 'Children\'s park equipment is broken. Swings and slides need repair urgently.', category: 'infrastructure', priority: 'medium', status: 'open', areaId: areas[2]._id, reportedBy: citizens[0]._id },
     { title: 'Overflowing Drain Causing Flooding', description: 'Storm drain blocked causing road flooding during rain. Multiple houses affected.', category: 'sanitation', priority: 'critical', status: 'overdue', areaId: areas[0]._id, reportedBy: citizens[2]._id, assignedTo: officers[0]._id, deadline: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000) },
   ]);
-  console.log(`✅ Created ${issues.length} issues`);
+  console.log(`Created ${issues.length} issues`);
 
   // Create Funds
   await Fund.insertMany([
@@ -83,7 +83,7 @@ const seed = async () => {
     { title: 'Water Pipeline Upgrade - Whitefield', purpose: 'Upgrade 10 km of old water pipeline to prevent leakage', amount: 5000000, amountUtilized: 0, areaId: areas[2]._id, allocatedBy: authority._id, category: 'water', status: 'allocated', deadline: new Date(Date.now() + 60 * 24 * 60 * 60 * 1000) },
     { title: 'Community Health Center - Jayanagar', purpose: 'Setup mobile health screening camps and upgrade PHC equipment', amount: 1800000, amountUtilized: 1800000, areaId: areas[3]._id, allocatedBy: authority._id, category: 'health', status: 'completed', deadline: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), completedAt: new Date() },
   ]);
-  console.log('✅ Created funds');
+  console.log('Created funds');
 
   // Create Rankings for officers
   await Ranking.insertMany([
@@ -91,12 +91,12 @@ const seed = async () => {
     { officerId: officers[1]._id, areaId: areas[1]._id, completedCount: 8, pendingCount: 2, overdueCount: 0, totalAssigned: 10, avgResolutionTimeDays: 3.8, completionScore: 85, feedbackScore: 4.6, overallScore: 89, badge: 'gold' },
     { officerId: officers[2]._id, areaId: areas[2]._id, completedCount: 5, pendingCount: 5, overdueCount: 2, totalAssigned: 12, avgResolutionTimeDays: 7.2, completionScore: 55, feedbackScore: 3.1, overallScore: 60, badge: 'silver' },
   ]);
-  console.log('✅ Created rankings');
+  console.log('Created rankings');
 
-  console.log('\n🎉 Database seeded successfully!\n');
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('📋 Test Credentials:');
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('\nDatabase seeded successfully!\n');
+  console.log('----------------------------------------');
+  console.log('Test Credentials:');
+  console.log('----------------------------------------');
   console.log('Admin:     admin@jantantra.gov.in     | Admin@123');
   console.log('Authority: authority@jantantra.gov.in | Auth@123');
   console.log('Officer 1: officer1@jantantra.gov.in  | Officer@123');

@@ -154,7 +154,7 @@ export default function Landing() {
 
           {/* Trust pills */}
           <div className="hero-trust-row">
-            <div className="hero-trust-pill">✅ Free for Citizens</div>
+            <div className="hero-trust-pill">Free for Citizens</div>
             <div className="hero-trust-pill">🔒 Secure & Encrypted</div>
             <div className="hero-trust-pill">📍 Location-Verified</div>
           </div>

@@ -52,7 +52,7 @@ app.use('/api/feedback', require('./routes/feedback'));
 app.use('/api/rankings', require('./routes/rankings'));
 
 // Health check
-app.get('/', (req, res) => res.json({ message: 'Jan Tantra API is running 🚀', version: '1.0.0' }));
+app.get('/', (req, res) => res.json({ message: 'Jan Tantra API is running', version: '1.0.0' }));
 app.get('/api/health', (req, res) => res.json({ success: true }));
 
 // Error handler
@@ -66,12 +66,12 @@ const PORT = process.env.PORT || 5000;
 const startServer = async () => {
   await connectDB();
   app.listen(PORT, () => {
-    console.log(`✅ Server running on port ${PORT}`);
-    console.log(`✅ CORS allowed origins: ${allowedOrigins.join(', ')}`);
+    console.log(`Server running on port ${PORT}`);
+    console.log(`CORS allowed origins: ${allowedOrigins.join(', ')}`);
   });
 };
 
 startServer().catch((error) => {
-  console.error(`❌ Startup failed: ${error.message}`);
+  console.error(`Startup failed: ${error.message}`);
   process.exit(1);
 });
