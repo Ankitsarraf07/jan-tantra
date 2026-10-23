@@ -1,5 +1,5 @@
 # Jan Tantra
-Deployed Link: https://lux-stay-frontend.vercel.app/
+Live: https://lux-stay-frontend.vercel.app/
 
 > Transparent Local Governance for All Citizens — a MERN stack platform for reporting issues, managing funds, and tracking officer performance.
 
